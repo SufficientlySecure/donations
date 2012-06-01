@@ -16,14 +16,13 @@ Fork Android Donations Lib and do a pull request. I will merge your changes back
 
 1. New -> Android Project -> Create project from existing source, choose org_donations 
 2. Add org_donations as Android Lib (Properties of your project -> Android -> Library -> add org_donations as android library)
-3. Add the following lines to your AndroidManifest:
-
+3. Add the following lines to your AndroidManifest for permissions:
 ```xml
 <uses-permission android:name="android.permission.INTERNET" />
 <!-- Required permission to use Google Android Market donations -->
 <uses-permission android:name="com.android.vending.BILLING" />
 ```
-
+4. Add the following lines to your AndroidManifest the activity:
 ```xml
 <activity
     android:name="org.donations.DonationsActivity"
@@ -43,5 +42,8 @@ Fork Android Donations Lib and do a pull request. I will merge your changes back
     </intent-filter>
 </receiver>
 ```
-
-4. Configure the Donations Lib by altering the file src/org/donations/DonationsConfiguration.java
+5. Configure the Donations Lib by altering the file src/org/donations/DonationsConfiguration.java
+6. Open the activity in your app:
+```java
+startActivity(new Intent(this, DonationsActivity.class));
+```
