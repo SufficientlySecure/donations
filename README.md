@@ -14,9 +14,9 @@ Fork Android Donations Lib and do a pull request. I will merge your changes back
 
 # Add the lib to your project
 
-1. New -> Android Project -> Create project from existing source, choose org_donations 
-2. Add org_donations as Android Lib (Properties of your project -> Android -> Library -> add org_donations as android library)
-3. Add the following lines to your AndroidManifest for permissions:
+* New -> Android Project -> Create project from existing source, choose org_donations 
+* Add org_donations as Android Lib (Properties of your project -> Android -> Library -> add org_donations as android library)
+* Add the following lines to your AndroidManifest for permissions:
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET" />
@@ -24,7 +24,7 @@ Fork Android Donations Lib and do a pull request. I will merge your changes back
 <uses-permission android:name="com.android.vending.BILLING" />
 ```
 
-4. Add the following lines to your AndroidManifest the activity:
+* Add the following lines to your AndroidManifest the activity:
 
 ```xml
 <activity
@@ -46,9 +46,11 @@ Fork Android Donations Lib and do a pull request. I will merge your changes back
 </receiver>
 ```
 
-5. Configure the Donations Lib by altering the file src/org/donations/DonationsConfiguration.java
-6. Open the activity in your app:
+* Configure the Donations Lib by altering the file src/org/donations/DonationsConfiguration.java
+* Open the activity in your app:
 
 ```java
 startActivity(new Intent(this, DonationsActivity.class));
 ```
+
+* When publishing the app you have to create in-app products for your app in the Google Play Store that matches the ones you defined in DonationsConfiguration.java
