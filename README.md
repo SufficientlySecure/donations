@@ -47,7 +47,7 @@ Fork Android Donations Lib and do a pull request. I will merge your changes back
 ```
 
 * Configure the Donations Lib by altering the file src/org/donations/DonationsConfiguration.java
-* Start the activity in your app:
+* Integrate this activity in your app by opening it as an intent:
 
 ```java
 startActivity(new Intent(this, DonationsActivity.class));
