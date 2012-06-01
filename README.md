@@ -20,7 +20,7 @@ Fork Android Donations Lib and do a pull request. I will merge your changes back
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET" />
-<!-- Required permission to use Google Android Market donations -->
+<!-- Required permission to use Google Play Store donations -->
 <uses-permission android:name="com.android.vending.BILLING" />
 ```
 
@@ -34,7 +34,7 @@ Fork Android Donations Lib and do a pull request. I will merge your changes back
     android:launchMode="singleTask"
     android:theme="@style/Theme.Dialog" />
 
-<!-- - Google Android Market donations -->
+<!-- - Google Play Store donations -->
 <service android:name="org.donations.google.BillingService" />
 
 <receiver android:name="org.donations.google.BillingReceiver" >
@@ -47,7 +47,7 @@ Fork Android Donations Lib and do a pull request. I will merge your changes back
 ```
 
 * Configure the Donations Lib by altering the file src/org/donations/DonationsConfiguration.java
-* Open the activity in your app:
+* Start the activity in your app:
 
 ```java
 startActivity(new Intent(this, DonationsActivity.class));
