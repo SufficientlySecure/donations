@@ -25,6 +25,8 @@ import org.donations.google.BillingService.RestoreTransactions;
 import org.donations.google.Consts.PurchaseState;
 import org.donations.google.Consts.ResponseCode;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -35,6 +37,7 @@ import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.webkit.WebView.HitTestResult;
 import android.widget.FrameLayout;
 
 import android.app.Dialog;
@@ -122,7 +125,7 @@ public class DonationsActivity extends Activity {
         }
     }
 
-    /** 
+    /**
      * Called when the activity is first created.
      */
     @Override
@@ -171,9 +174,9 @@ public class DonationsActivity extends Activity {
     }
 
     /**
-     * Donate button with PayPal by opening browser with defined URL
-     * For possible parameters see:
-     * https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/e_howto_html_Appx_websitestandard_htmlvariables
+     * Donate button with PayPal by opening browser with defined URL For possible parameters see:
+     * https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/
+     * e_howto_html_Appx_websitestandard_htmlvariables
      * 
      * @param view
      */
@@ -259,8 +262,11 @@ public class DonationsActivity extends Activity {
     }
 
     /**
-     * Build view for Flattr. see Flattr API for more information: http://developers.flattr.net/button/
+     * Build view for Flattr. see Flattr API for more information:
+     * http://developers.flattr.net/button/
      */
+    @SuppressLint("SetJavaScriptEnabled")
+    @TargetApi(11)
     private void buildFlattrView() {
         final FrameLayout mLoadingFrame;
         final WebView mFlattrWebview;
@@ -295,7 +301,8 @@ public class DonationsActivity extends Activity {
             @Override
             public void onLoadResource(WebView view, String url) {
                 if (url.contains("flattr")) {
-                    if (view.getHitTestResult().getType() > 0) {
+                    HitTestResult result = view.getHitTestResult();
+                    if (result != null && result.getType() > 0) {
                         view.getContext().startActivity(
                                 new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
                         view.stopLoading();
