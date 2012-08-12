@@ -46,11 +46,12 @@ Fork Android Donations Lib and do a pull request. I will merge your changes back
 </receiver>
 ```
 
-* Configure the Donations Lib by altering the file src/org/donations/DonationsConfiguration.java
+* Copy the file ``donations__config.xml`` to ``res/values/`` of your **own** project
+* Configure the Donations Lib by altering ``donations__config.xml``
 * Integrate this activity in your app by opening it as an intent:
 
 ```java
 startActivity(new Intent(this, DonationsActivity.class));
 ```
 
-* When publishing the app you have to create in-app products for your app in the Google Play Store that matches the ones you defined in DonationsConfiguration.java
+* When publishing the app you have to create in-app products for your app in the Google Play Store that matches the ones you defined in ``donations__config.xml``
