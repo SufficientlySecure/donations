@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011 Dominik Schürmann <dominik@dominikschuermann.de>
+ * Copyright (C) 2011-2012 Dominik Schürmann <dominik@dominikschuermann.de>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,8 @@ public class DonationsUtils {
     public static final boolean DEBUG = false;
 
     /**
-     * Gets resource string from values xml without relying on generated R.java
+     * Gets resource string from values xml without relying on generated R.java. This allows to
+     * compile the donations lib on its own, while having the configuration xml in the main project.
      * 
      * @param name
      * @param context
@@ -42,14 +43,15 @@ public class DonationsUtils {
     }
 
     /**
-     * Gets resource string from values xml without relying on generated R.java
+     * Gets resource boolean from values xml without relying on generated R.java. This allows to
+     * compile the donations lib on its own, while having the configuration xml in the main project.
      * 
      * @param name
      * @param context
      * @return
      */
     public static boolean getResourceBoolean(Context context, String name) {
-        int nameResourceID = context.getResources().getIdentifier(name, "boolean",
+        int nameResourceID = context.getResources().getIdentifier(name, "bool",
                 context.getApplicationInfo().packageName);
         if (nameResourceID == 0) {
             throw new IllegalArgumentException("No resource boolean found with name " + name);
@@ -59,7 +61,9 @@ public class DonationsUtils {
     }
 
     /**
-     * Gets resource string-array
+     * Gets resource string-array from values xml without relying on generated R.java. This allows
+     * to compile the donations lib on its own, while having the configuration xml in the main
+     * project.
      * 
      * @param name
      * @param context

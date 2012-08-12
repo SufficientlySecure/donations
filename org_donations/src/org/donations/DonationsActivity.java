@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011 Dominik Schürmann <dominik@dominikschuermann.de>
+ * Copyright (C) 2011-2012 Dominik Schürmann <dominik@dominikschuermann.de>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,6 +35,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewStub;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.webkit.WebView.HitTestResult;
@@ -51,8 +52,7 @@ public class DonationsActivity extends Activity {
     private DonatePurchaseObserver mDonatePurchaseObserver;
     private Handler mHandler;
 
-    private Spinner mGoogleAndroidMarketSpinner;
-
+    private Spinner mGoogleSpinner;
     private TextView mFlattrUrl;
 
     private BillingService mBillingService;
@@ -64,6 +64,8 @@ public class DonationsActivity extends Activity {
 
     private static final String[] CATALOG_DEBUG = new String[] { "android.test.purchased",
             "android.test.canceled", "android.test.refunded", "android.test.item_unavailable" };
+
+    private boolean mGoogleEnabled;
 
     /**
      * A {@link PurchaseObserver} is used to get callbacks when Android Market sends messages to
@@ -134,24 +136,45 @@ public class DonationsActivity extends Activity {
 
         setContentView(R.layout.donations__activity);
 
-        // build everything for flattr
-        buildFlattrView();
+        /* Flattr */
+        if (DonationsUtils.getResourceBoolean(this, "donations__flattr_enabled")) {
+            // inflate flattr view stub
+            ViewStub flattrViewStub = (ViewStub) findViewById(R.id.donations__flattr_stub);
+            flattrViewStub.inflate();
 
-        // get catalog from xml config
-        CATALOG = DonationsUtils.getResourceStringArray(this, "donations__google_catalog");
+            buildFlattrView();
+        }
 
-        // choose donation amount
-        mGoogleAndroidMarketSpinner = (Spinner) findViewById(R.id.donations__google_android_market_spinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.donations__google_android_market_promt_array,
-                android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mGoogleAndroidMarketSpinner.setAdapter(adapter);
+        /* Google */
+        mGoogleEnabled = DonationsUtils.getResourceBoolean(this, "donations__google_enabled");
+        if (mGoogleEnabled) {
+            // inflate google view stub
+            ViewStub googleViewStub = (ViewStub) findViewById(R.id.donations__google_stub);
+            googleViewStub.inflate();
 
-        mHandler = new Handler();
-        mDonatePurchaseObserver = new DonatePurchaseObserver(mHandler);
-        mBillingService = new BillingService();
-        mBillingService.setContext(this);
+            // get catalog from xml config
+            CATALOG = DonationsUtils.getResourceStringArray(this, "donations__google_catalog");
+
+            // choose donation amount
+            mGoogleSpinner = (Spinner) findViewById(R.id.donations__google_android_market_spinner);
+            ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                    R.array.donations__google_android_market_promt_array,
+                    android.R.layout.simple_spinner_item);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            mGoogleSpinner.setAdapter(adapter);
+
+            mHandler = new Handler();
+            mDonatePurchaseObserver = new DonatePurchaseObserver(mHandler);
+            mBillingService = new BillingService();
+            mBillingService.setContext(this);
+        }
+
+        /* PayPal */
+        if (DonationsUtils.getResourceBoolean(this, "donations__paypal_enabled")) {
+            // inflate paypal view stub
+            ViewStub paypalViewStub = (ViewStub) findViewById(R.id.donations__paypal_stub);
+            paypalViewStub.inflate();
+        }
     }
 
     /**
@@ -161,7 +184,7 @@ public class DonationsActivity extends Activity {
      */
     public void donateGoogleOnClick(View view) {
         final int index;
-        index = mGoogleAndroidMarketSpinner.getSelectedItemPosition();
+        index = mGoogleSpinner.getSelectedItemPosition();
         Log.d(DonationsUtils.TAG, "selected item in spinner: " + index);
 
         if (!Consts.DEBUG) {
@@ -203,8 +226,7 @@ public class DonationsActivity extends Activity {
         Uri payPalUri = uriBuilder.build();
 
         if (DonationsUtils.DEBUG) {
-            Log.d(DonationsUtils.TAG,
-                    "Opening the browser with the url: " + payPalUri.toString());
+            Log.d(DonationsUtils.TAG, "Opening the browser with the url: " + payPalUri.toString());
         }
 
         // Start your favorite browser
@@ -218,7 +240,10 @@ public class DonationsActivity extends Activity {
     @Override
     protected void onStart() {
         super.onStart();
-        ResponseHandler.register(mDonatePurchaseObserver);
+
+        if (mGoogleEnabled) {
+            ResponseHandler.register(mDonatePurchaseObserver);
+        }
     }
 
     /**
@@ -227,13 +252,18 @@ public class DonationsActivity extends Activity {
     @Override
     protected void onStop() {
         super.onStop();
-        ResponseHandler.unregister(mDonatePurchaseObserver);
+        if (mGoogleEnabled) {
+            ResponseHandler.unregister(mDonatePurchaseObserver);
+        }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mBillingService.unbind();
+
+        if (mGoogleEnabled) {
+            mBillingService.unbind();
+        }
     }
 
     @Override
@@ -330,8 +360,7 @@ public class DonationsActivity extends Activity {
         });
 
         // get flattr values from xml config
-        String projectUrl = DonationsUtils.getResourceString(this,
-                "donations__flattr_project_url");
+        String projectUrl = DonationsUtils.getResourceString(this, "donations__flattr_project_url");
         String flattrUrl = DonationsUtils.getResourceString(this, "donations__flattr_url");
 
         // make text white and background transparent
