@@ -32,7 +32,7 @@ Fork Android Donations Lib and do a pull request. I will merge your changes back
     android:excludeFromRecents="true"
     android:label="Donations"
     android:launchMode="singleTask"
-    android:theme="@style/Theme.Dialog" />
+    android:theme="@android:style/Theme.DeviceDefault.Dialog" />
 
 <!-- - Google Play Store donations -->
 <service android:name="org.donations.google.BillingService" />

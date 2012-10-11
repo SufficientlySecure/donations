@@ -17,7 +17,7 @@
     mapping from the possible donations of 1,2,3,5,8 and 13 eur to your in-app items defined in
     the publisher account of google play
     -->
-    <string-array name="donations__google_catalog" translate="false">
+    <string-array name="donations__google_catalog" translatable="false">
         <item>adaway.donation.1</item>
         <item>adaway.donation.2</item>
         <item>adaway.donation.3</item>
@@ -32,6 +32,7 @@
     <item name="donations__paypal_currency_code" format="string" type="string">EUR</item>
 
     <!-- This value can also be translated! -->
+    <!-- Add translatable="false" if you don't want or need to translate -->
     <string name="donations__paypal_item_name">AdAway Donation</string>
 
 </resources>
