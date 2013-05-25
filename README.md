@@ -4,6 +4,13 @@ Android Donations Lib supports donations by Google Play Store, PayPal, and Flatt
 
 It is used in my projects AdAway, FasterGPS, and NTP-Sync.
 
+# NEWS
+
+* Now uses Gradle Build System (http://tools.android.com/tech-docs/new-build-system)
+* No xml configuration needed anymore!
+* Fragment can be instantiated and used in any Activity.
+* Using Gradle you can build "product flavors": One version with Google Play Donation capability and one with Paypal and Flattr!
+
 # Contribute
 
 Fork Android Donations Lib and do a pull request. I will merge your changes back into the main project.
@@ -14,44 +21,6 @@ Fork Android Donations Lib and do a pull request. I will merge your changes back
 
 # Add the lib to your project
 
-* New -> Android Project -> Create project from existing source, choose org_donations 
-* Add org_donations as Android Lib (Properties of your project -> Android -> Library -> add org_donations as android library)
-* Add the following lines to your AndroidManifest for permissions:
-
-```xml
-<uses-permission android:name="android.permission.INTERNET" />
-<!-- Required permission to use Google Play Store donations -->
-<uses-permission android:name="com.android.vending.BILLING" />
-```
-
-* Add the following lines to your AndroidManifest the activity:
-
-```xml
-<activity
-    android:name="org.donations.DonationsActivity"
-    android:excludeFromRecents="true"
-    android:label="Donations"
-    android:launchMode="singleTask"
-    android:theme="@android:style/Theme.DeviceDefault.Dialog" />
-
-<!-- - Google Play Store donations -->
-<service android:name="org.donations.google.BillingService" />
-
-<receiver android:name="org.donations.google.BillingReceiver" >
-    <intent-filter>
-        <action android:name="com.android.vending.billing.IN_APP_NOTIFY" />
-        <action android:name="com.android.vending.billing.RESPONSE_CODE" />
-        <action android:name="com.android.vending.billing.PURCHASE_STATE_CHANGED" />
-    </intent-filter>
-</receiver>
-```
-
-* Copy the file ``donations__config.xml`` to ``res/values/`` of your **own** project
-* Configure the Donations Lib by altering ``donations__config.xml``
-* Integrate this activity in your app by opening it as an intent:
-
-```java
-startActivity(new Intent(this, DonationsActivity.class));
-```
-
-* When publishing the app you have to create in-app products for your app in the Google Play Store that matches the ones you defined in ``donations__config.xml``
+* ExampleApp depends on "libraries/Donations" and has two product flavors defined in its gradle configuration.
+* See 
+* When publishing the app you have to create in-app products for your app in the Google Play Store that matches the ones you defined in ``private static final String[] GOOGLE_CATALOG``
