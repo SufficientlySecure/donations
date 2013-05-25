@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011-2012 Dominik Schürmann <dominik@dominikschuermann.de>
+ * Copyright (C) 2011-2013 Dominik Schürmann <dominik@dominikschuermann.de>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,8 +50,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
-
-import java.util.ArrayList;
 
 public class DonationsFragment extends Fragment {
 

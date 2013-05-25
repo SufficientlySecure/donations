@@ -14,12 +14,13 @@
  * limitations under the License.
  */
 
-package org.sufficientlysecure.donations;
+package org.sufficientlysecure.donations.example;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import org.sufficientlysecure.donations.DonationsFragment;
+import org.sufficientlysecure.donations.example.R;
 
 public class DonationsActivity extends FragmentActivity {
 
@@ -51,7 +52,7 @@ public class DonationsActivity extends FragmentActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.donations__activity);
+        setContentView(R.layout.donations_activity);
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         DonationsFragment donationsFragment;

@@ -19,6 +19,14 @@ Fork Android Donations Lib and do a pull request. I will merge your changes back
 
 ![Screenshot](http://github.com/dschuermann/android-donations-lib/raw/master/screenshot.png)
 
+# Build Example App with Gradle
+
+1. Have Android SDK "tools", "platform-tools", and "build-tools" directories in your PATH (http://developer.android.com/sdk/index.html)
+2. Export ANDROID_HOME pointing to your Android SDK
+3. Install gradle
+4. Execute ``gradle wrapper`` (http://www.gradle.org/docs/current/userguide/gradle_wrapper.html)
+5. Execute ``./gradlew assemble``
+
 # Add the lib to your project
 
 * ExampleApp depends on "libraries/Donations" and has two product flavors defined in its gradle configuration.
