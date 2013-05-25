@@ -22,5 +22,5 @@ Fork Android Donations Lib and do a pull request. I will merge your changes back
 # Add the lib to your project
 
 * ExampleApp depends on "libraries/Donations" and has two product flavors defined in its gradle configuration.
-* See 
+* See https://github.com/dschuermann/android-donations-lib/blob/master/ExampleApp/src/main/java/org/sufficientlysecure/donations/DonationsActivity.java
 * When publishing the app you have to create in-app products for your app in the Google Play Store that matches the ones you defined in ``private static final String[] GOOGLE_CATALOG``
