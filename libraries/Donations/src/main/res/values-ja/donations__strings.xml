@@ -10,14 +10,6 @@
   <string name="donations__google_android_market_description">Googleは寄付の30%を持って行きます…。</string>
   <string name="donations__google_android_market_donate_button">寄付する!</string>
   <string name="donations__google_android_market_text">いくら?</string>
-  <string-array name="donations__google_android_market_promt_array">
-    <item>1 ユーロ</item>
-    <item>2 ユーロ</item>
-    <item>3 ユーロ</item>
-    <item>5 ユーロ</item>
-    <item>8 ユーロ</item>
-    <item>13 ユーロ</item>
-  </string-array>
   <string name="donations__paypal">PayPal</string>
   <string name="donations__paypal_description">ボタンを押した後寄付したい額を選べます!</string>
   <string name="donations__thanks_dialog_title">ありがとう!</string>

@@ -10,14 +10,6 @@
   <string name="donations__google_android_market_description">Google hưởng 30% giá trị ủng hộ!</string>
   <string name="donations__google_android_market_donate_button">Ủng hộ!</string>
   <string name="donations__google_android_market_text">Bao nhiêu?</string>
-  <string-array name="donations__google_android_market_promt_array">
-    <item>1 Euro</item>
-    <item>2 Euros</item>
-    <item>3 Euros</item>
-    <item>5 Euros</item>
-    <item>8 Euros</item>
-    <item>13 Euros</item>
-  </string-array>
   <string name="donations__paypal">PayPal</string>
   <string name="donations__paypal_description">Bạn có thể bấm nút chọn số tiền cần ủng hộ!</string>
   <string name="donations__thanks_dialog_title">Xin cám ơn!</string>

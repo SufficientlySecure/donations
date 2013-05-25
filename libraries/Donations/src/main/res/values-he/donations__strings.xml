@@ -10,14 +10,6 @@
   <string name="donations__google_android_market_description">גוגל מקבלת 30% מסך התרומה!</string>
   <string name="donations__google_android_market_donate_button">תרומה!</string>
   <string name="donations__google_android_market_text">כמה?</string>
-  <string-array name="donations__google_android_market_promt_array">
-    <item>יורו 1</item>
-    <item>2 יורו</item>
-    <item>3 יורו</item>
-    <item>5 יורו</item>
-    <item>8 יורו</item>
-    <item>13 יורו</item>
-  </string-array>
   <string name="donations__paypal">PayPal</string>
   <string name="donations__paypal_description">אתה יכול לבחור כמה אתה רוצה לתרום על ידי לחיצה על הכפתור!</string>
   <string name="donations__thanks_dialog_title">תודה!</string>

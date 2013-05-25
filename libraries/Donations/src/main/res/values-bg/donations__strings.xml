@@ -10,14 +10,6 @@
   <string name="donations__google_android_market_description">Google взема 30% от всяко дарение!</string>
   <string name="donations__google_android_market_donate_button">Дарете!</string>
   <string name="donations__google_android_market_text">Колко?</string>
-  <string-array name="donations__google_android_market_promt_array">
-    <item>1 евро</item>
-    <item>2 евра</item>
-    <item>3 евра</item>
-    <item>5 евра</item>
-    <item>8 евра</item>
-    <item>13 евра</item>
-  </string-array>
   <string name="donations__paypal">PayPal</string>
   <string name="donations__paypal_description">Можете да изберете колко искате да дарите след натискане на бутона!</string>
   <string name="donations__thanks_dialog_title">Благодаря!</string>

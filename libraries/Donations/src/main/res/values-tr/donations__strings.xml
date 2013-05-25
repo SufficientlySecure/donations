@@ -10,14 +10,6 @@
   <string name="donations__google_android_market_description">Google her bağışın %30\'unu alıyor!</string>
   <string name="donations__google_android_market_donate_button">Bağış Yap!</string>
   <string name="donations__google_android_market_text">Ne kadar?</string>
-  <string-array name="donations__google_android_market_promt_array">
-    <item>1 Euro</item>
-    <item>2 Euro</item>
-    <item>3 Euro</item>
-    <item>5 Euro</item>
-    <item>8 Euro</item>
-    <item>13 Euro</item>
-  </string-array>
   <string name="donations__paypal">PayPal</string>
   <string name="donations__paypal_description">Butona bastıktan sonra ne kadar bağış yapacağınızı seçebilirsiniz!</string>
   <string name="donations__thanks_dialog_title">Teşekkürler!</string>

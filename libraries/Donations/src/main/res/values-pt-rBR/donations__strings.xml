@@ -10,14 +10,6 @@
   <string name="donations__google_android_market_description">Google retém 30% de cada doação!</string>
   <string name="donations__google_android_market_donate_button">Doar!</string>
   <string name="donations__google_android_market_text">Quanto?</string>
-  <string-array name="donations__google_android_market_promt_array">
-    <item>1 Euro</item>
-    <item>2 Euros</item>
-    <item>3 Euros</item>
-    <item>5 Euros</item>
-    <item>8 Euros</item>
-    <item>13 Euros</item>
-  </string-array>
   <string name="donations__paypal">PayPal</string>
   <string name="donations__paypal_description">Você pode escolher quanto deseja doar após clicar no botão!</string>
   <string name="donations__thanks_dialog_title">Obrigado!</string>

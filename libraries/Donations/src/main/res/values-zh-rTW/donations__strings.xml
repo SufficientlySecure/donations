@@ -10,14 +10,6 @@
   <string name="donations__google_android_market_description">Google 會從每筆資助金額中抽取3成！</string>
   <string name="donations__google_android_market_donate_button">資助開發者！</string>
   <string name="donations__google_android_market_text">多少？</string>
-  <string-array name="donations__google_android_market_promt_array">
-    <item>1 歐元</item>
-    <item>2 歐元</item>
-    <item>3 歐元</item>
-    <item>5 歐元</item>
-    <item>8 歐元</item>
-    <item>13 歐元</item>
-  </string-array>
   <string name="donations__paypal">PayPal</string>
   <string name="donations__paypal_description">你可以選擇你想資助多少後點擊按鈕！</string>
   <string name="donations__thanks_dialog_title">謝謝！</string>

@@ -10,14 +10,6 @@
   <string name="donations__google_android_market_description">A Google része 30 % minden adományból!</string>
   <string name="donations__google_android_market_donate_button">Adományozok!</string>
   <string name="donations__google_android_market_text">Mennyi?</string>
-  <string-array name="donations__google_android_market_promt_array">
-    <item>1 Euro</item>
-    <item>2 Euro</item>
-    <item>3 Euro</item>
-    <item>5 Euro</item>
-    <item>8 Euro</item>
-    <item>13 Euro</item>
-  </string-array>
   <string name="donations__paypal">PayPal</string>
   <string name="donations__paypal_description">Az adományozott összeget megválaszthatja a gombra való kattintás után.</string>
   <string name="donations__thanks_dialog_title">Köszönöm!</string>

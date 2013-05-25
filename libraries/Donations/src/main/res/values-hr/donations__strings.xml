@@ -10,14 +10,6 @@
   <string name="donations__google_android_market_description">Google uzima 30% od svake donacije!</string>
   <string name="donations__google_android_market_donate_button">Donirajte!</string>
   <string name="donations__google_android_market_text">Koliko?</string>
-  <string-array name="donations__google_android_market_promt_array">
-    <item>1 Euro</item>
-    <item>2 Eura</item>
-    <item>3 Eura</item>
-    <item>5 Eura</item>
-    <item>8 Eura</item>
-    <item>13 Eura</item>
-  </string-array>
   <string name="donations__paypal">PayPal</string>
   <string name="donations__paypal_description">Možete izabrati koliko želite donirati nakon pritiska na gumb.</string>
   <string name="donations__thanks_dialog_title">Hvala!</string>

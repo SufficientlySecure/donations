@@ -51,6 +51,8 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class DonationsFragment extends Fragment {
 
     public static final String ARG_FLATTR_ENABLED = "flattrEnabled";
@@ -60,6 +62,7 @@ public class DonationsFragment extends Fragment {
     public static final String ARG_GOOGLE_ENABLED = "googleEnabled";
     public static final String ARG_GOOGLE_PUBKEY = "googlePubkey";
     public static final String ARG_GOOGLE_CATALOG = "googleCatalog";
+    public static final String ARG_GOOGLE_CATALOG_VALUES = "googleCatalogValues";
 
     public static final String ARG_PAYPAL_ENABLED = "paypalEnabled";
     public static final String ARG_PAYPAL_USER = "paypalUser";
@@ -86,6 +89,7 @@ public class DonationsFragment extends Fragment {
     protected boolean googleEnabled = false;
     //protected String googlePubkey = "";
     protected String[] googleCatalog = new String[]{};
+    protected String[] googleCatalogValues = new String[]{};
 
     protected boolean paypalEnabled = false;
     protected String paypalUser = "";
@@ -98,9 +102,9 @@ public class DonationsFragment extends Fragment {
     protected String flattrUrl = "";
 
     public static DonationsFragment newInstance(boolean googleEnabled, String googlePubkey, String[] googleCatalog,
-                                                boolean paypalEnabled, String paypalUser, String paypalCurrencyCode,
-                                                String paypalItemName, boolean flattrEnabled, String flattrProjectUrl,
-                                                String flattrUrl) {
+                                                String[] googleCatalogValues, boolean paypalEnabled, String paypalUser,
+                                                String paypalCurrencyCode, String paypalItemName, boolean flattrEnabled,
+                                                String flattrProjectUrl, String flattrUrl) {
         DonationsFragment donationsFragment = new DonationsFragment();
         Bundle args = new Bundle();
 
@@ -109,6 +113,7 @@ public class DonationsFragment extends Fragment {
         //args.putString(ARG_GOOGLE_PUBKEY, googlePubkey);
         Consts.GOOGLE_PUBKEY = googlePubkey;
         args.putStringArray(ARG_GOOGLE_CATALOG, googleCatalog);
+        args.putStringArray(ARG_GOOGLE_CATALOG_VALUES, googleCatalogValues);
 
         args.putBoolean(ARG_PAYPAL_ENABLED, paypalEnabled);
         args.putString(ARG_PAYPAL_USER, paypalUser);
@@ -130,6 +135,7 @@ public class DonationsFragment extends Fragment {
         googleEnabled = getArguments().getBoolean(ARG_GOOGLE_ENABLED);
         //googlePubkey = getArguments().getString(ARG_GOOGLE_PUBKEY);
         googleCatalog = getArguments().getStringArray(ARG_GOOGLE_CATALOG);
+        googleCatalogValues = getArguments().getStringArray(ARG_GOOGLE_CATALOG_VALUES);
 
         paypalEnabled = getArguments().getBoolean(ARG_PAYPAL_ENABLED);
         paypalUser = getArguments().getString(ARG_PAYPAL_USER);
@@ -219,9 +225,8 @@ public class DonationsFragment extends Fragment {
             // choose donation amount
             mGoogleSpinner = (Spinner) getActivity().findViewById(
                     R.id.donations__google_android_market_spinner);
-            ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
-                    R.array.donations__google_android_market_promt_array,
-                    android.R.layout.simple_spinner_item);
+            ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(getActivity(),
+                    android.R.layout.simple_spinner_item, googleCatalogValues);
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             mGoogleSpinner.setAdapter(adapter);
 

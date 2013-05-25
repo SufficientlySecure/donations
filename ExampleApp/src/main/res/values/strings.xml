@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="donation_google_catalog_values">
+        <item>1 Euro</item>
+        <item>2 Euros</item>
+        <item>3 Euros</item>
+        <item>5 Euros</item>
+        <item>8 Euros</item>
+        <item>13 Euros</item>
+    </string-array>
+
+    <string name="donation_paypal_item">Donation</string>
+
+</resources>

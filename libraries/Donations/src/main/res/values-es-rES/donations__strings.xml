@@ -10,14 +10,6 @@
   <string name="donations__google_android_market_description">¡Google se queda el 30% de todas las donaciones!</string>
   <string name="donations__google_android_market_donate_button">¡Donar!</string>
   <string name="donations__google_android_market_text">¿Cuánto?</string>
-  <string-array name="donations__google_android_market_promt_array">
-    <item>1 Euro</item>
-    <item>2 Euros</item>
-    <item>3 Euros</item>
-    <item>5 Euros</item>
-    <item>8 Euros</item>
-    <item>13 Euros</item>
-  </string-array>
   <string name="donations__paypal">PayPal</string>
   <string name="donations__paypal_description">¡Puedes elegir cuánto quieres donar después de pulsar el botón!</string>
   <string name="donations__thanks_dialog_title">¡Gracias!</string>

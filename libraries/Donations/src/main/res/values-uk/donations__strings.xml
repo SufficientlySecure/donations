@@ -10,14 +10,6 @@
   <string name="donations__google_android_market_description">Google стягує 30% з кожного пожертвування!</string>
   <string name="donations__google_android_market_donate_button">Пожертвувати!</string>
   <string name="donations__google_android_market_text">Скільки?</string>
-  <string-array name="donations__google_android_market_promt_array">
-    <item> 1 Євро </item>
-    <item> 2 Євро </item>
-    <item> 3 Євро </item>
-    <item> 5 Євро </item>
-    <item> 8 Євро </item>
-    <item> 13 Євро </item>
-  </string-array>
   <string name="donations__paypal">PayPal</string>
   <string name="donations__paypal_description">Після натискання на кнопку ви можете вибрати скільки хочете пожертвувати!</string>
   <string name="donations__thanks_dialog_title">Дякую!</string>

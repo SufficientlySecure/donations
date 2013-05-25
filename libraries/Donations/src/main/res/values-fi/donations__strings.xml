@@ -10,14 +10,6 @@
   <string name="donations__google_android_market_description">Gogle ottaa 30% jokaisesta lahjoituksesta!</string>
   <string name="donations__google_android_market_donate_button">Lahjoita!</string>
   <string name="donations__google_android_market_text">Kuinka paljon?</string>
-  <string-array name="donations__google_android_market_promt_array">
-    <item>1 euro</item>
-    <item>2 euroa</item>
-    <item>3 euroa</item>
-    <item>5 euroa</item>
-    <item>8 euroa</item>
-    <item>13 euroa</item>
-  </string-array>
   <string name="donations__paypal">PayPal</string>
   <string name="donations__paypal_description">Voit valita, kuinka paljon haluat lahjoittaa painikkeen napsauttamisen jälkeen!</string>
   <string name="donations__thanks_dialog_title">Kiitos!</string>

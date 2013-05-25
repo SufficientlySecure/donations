@@ -56,11 +56,12 @@ public class DonationsActivity extends FragmentActivity {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         DonationsFragment donationsFragment;
         if (BuildConfig.DONATIONS_GOOGLE) {
-            donationsFragment = DonationsFragment.newInstance(true, GOOGLE_PUBKEY, GOOGLE_CATALOG, false, null, null,
+            donationsFragment = DonationsFragment.newInstance(true, GOOGLE_PUBKEY, GOOGLE_CATALOG,
+                    getResources().getStringArray(R.array.donation_google_catalog_values), false, null, null,
                     null, false, null, null);
         } else {
-            donationsFragment = DonationsFragment.newInstance(false, null, null, true, PAYPAL_USER,
-                    PAYPAL_CURRENCY_CODE, "Donation for lib", true, FLATTR_PROJECT_URL, FLATTR_URL);
+            donationsFragment = DonationsFragment.newInstance(false, null, null, null, true, PAYPAL_USER,
+                    PAYPAL_CURRENCY_CODE, getString(R.string.donation_paypal_item), true, FLATTR_PROJECT_URL, FLATTR_URL);
         }
 
         ft.replace(R.id.donations__activity_container, donationsFragment);
