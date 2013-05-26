@@ -68,7 +68,7 @@ public class DonationsActivity extends FragmentActivity {
                     PAYPAL_CURRENCY_CODE, getString(R.string.donation_paypal_item), true, FLATTR_PROJECT_URL, FLATTR_URL);
         }
 
-        ft.replace(R.id.donations__activity_container, donationsFragment, "donationsFragment");
+        ft.replace(R.id.donations_activity_container, donationsFragment, "donationsFragment");
         ft.commit();
     }
 
