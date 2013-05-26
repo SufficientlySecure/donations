@@ -17,6 +17,7 @@
 package org.sufficientlysecure.donations;
 
 import android.content.ActivityNotFoundException;
+import android.view.*;
 import android.widget.*;
 import org.sufficientlysecure.donations.google.util.IabHelper;
 import org.sufficientlysecure.donations.google.util.IabResult;
@@ -30,11 +31,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.view.ViewStub;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.webkit.WebView.HitTestResult;
@@ -510,6 +507,15 @@ public class DonationsFragment extends Fragment {
         mFlattrWebview.getSettings().setJavaScriptEnabled(true);
 
         mFlattrWebview.loadData(flattrCode, "text/html", "utf-8");
+
+        // disable scroll on touch
+        mFlattrWebview.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                // already handled (returns true) when moving
+                return (motionEvent.getAction() == MotionEvent.ACTION_MOVE);
+            }
+        });
 
         // make background of webview transparent
         // has to be called AFTER loadData
