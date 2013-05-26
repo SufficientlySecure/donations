@@ -63,20 +63,15 @@ public class DonationsFragment extends Fragment {
 
     private static final String TAG = "Donations Library";
 
-    private static final int DIALOG_BILLING_NOT_SUPPORTED_ID = 1;
-    private static final int DIALOG_THANKS = 2;
-
     // http://developer.android.com/google/play/billing/billing_testing.html
     private static final String[] CATALOG_DEBUG = new String[]{"android.test.purchased",
             "android.test.canceled", "android.test.refunded", "android.test.item_unavailable"};
 
-    private Handler mHandler;
-
     private Spinner mGoogleSpinner;
     private TextView mFlattrUrlTextView;
 
-    // The helper object
-    IabHelper mHelper;
+    // Google Play helper object
+    private IabHelper mHelper;
 
     protected boolean mDebug = false;
 
@@ -104,7 +99,7 @@ public class DonationsFragment extends Fragment {
      * @param googleCatalogValues Values for the names
      * @param paypalEnabled       Enable PayPal donations
      * @param paypalUser          Your PayPal email address
-     * @param paypalCurrencyCode  Currency code like EUR. see here for other codes:
+     * @param paypalCurrencyCode  Currency code like EUR. See here for other codes:
      *                            https://developer.paypal.com/webapps/developer/docs/classic/api/currency_codes/#id09A6G0U0GYK
      * @param paypalItemName      Display item name on PayPal, like "Donation for NTPSync"
      * @param flattrEnabled       Enable Flattr donations
@@ -183,7 +178,7 @@ public class DonationsFragment extends Fragment {
 
         /* Google */
         if (mGoogleEnabled) {
-            // inflate google_old view into stub
+            // inflate google view into stub
             ViewStub googleViewStub = (ViewStub) getActivity().findViewById(
                     R.id.donations__google_stub);
             googleViewStub.inflate();
