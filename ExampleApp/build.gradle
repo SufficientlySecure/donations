@@ -1,15 +1,7 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:0.4.1'
-    }
-}
 apply plugin: 'android'
 
 dependencies {
-    compile fileTree(dir: 'libs', includes: ['*.jar'], excludes: ['android-support-v4.jar'])
+    compile 'com.google.android:support-v4:r7'
     compile project(':libraries:Donations')
 }
 
