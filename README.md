@@ -9,7 +9,7 @@ It is used in my projects AdAway, FasterGPS, and NTP-Sync.
 * Now uses Gradle Build System (http://tools.android.com/tech-docs/new-build-system)
 * No xml configuration needed anymore!
 * Fragment can be instantiated and used in any Activity.
-* Using Gradle you can build "product flavors": One version with Google Play Donation capability and one with Paypal and Flattr! (Google mailed me to remove PayPal donation capability when publishing on Google Play!)
+* You can build "product flavors" defined by the ExampleApp: One version with Google Play Donation capability and one with Paypal and Flattr! (Google mailed me to remove PayPal donation capability when publishing on Google Play!)
 
 # Contribute
 
