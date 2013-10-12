@@ -4,8 +4,11 @@ Android Donations Lib supports donations by Google Play Store, PayPal, and Flatt
 
 It is used in my projects AdAway, FasterGPS, and NTP-Sync.
 
-## NEWS
+## Changelog
+### 2.1
+* Permissions are now defined per product flavor, they were removed from library's AndroidManifest
 
+### 2.0
 * Now uses Gradle Build System (http://tools.android.com/tech-docs/new-build-system)
 * No xml configuration needed anymore!
 * Fragment can be instantiated and used in any Activity.
