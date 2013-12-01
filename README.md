@@ -26,10 +26,8 @@ Fork Android Donations Lib and do a pull request. I will merge your changes back
 
 1. Have Android SDK "tools", "platform-tools", and "build-tools" directories in your PATH (http://developer.android.com/sdk/index.html)
 2. Export ANDROID_HOME pointing to your Android SDK
-3. Install gradle
-4. Download Android Support Repository, and Google Repository using Android SDK Manager
-5. Execute ``gradle wrapper`` (http://www.gradle.org/docs/current/userguide/gradle_wrapper.html)
-6. Execute ``./gradlew assemble``
+3. Download Android Support Repository, and Google Repository using Android SDK Manager
+4. Execute ``./gradlew build``
 
 ## Add the lib to your project
 
