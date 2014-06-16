@@ -17,5 +17,8 @@
     <string name="donations__thanks_dialog">Thanks for donating!\nI really appreciate this!</string>
     <string name="donations__alert_dialog_title">Error occurred</string>
     <string name="donations__alert_dialog_no_browser">No browser was found to open a website!</string>
+    <string name="donations__bitcoin">Bitcoin</string>
+    <string name="donations__bitcoin_description">Send any amount of bitcoin to the developer. Press and hold button to copy address.</string>
+    <string name="donations__bitcoin_send_bitcoin_button">Send bitcoin!</string>
 
 </resources>

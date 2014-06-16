@@ -38,6 +38,14 @@
             android:layout_height="wrap_content"
             android:inflatedId="@+id/donations__paypal"
             android:layout="@layout/donations__fragment_paypal" />
+
+        <ViewStub
+            android:id="@+id/donations__bitcoin_stub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inflatedId="@+id/donations__bitcoin"
+            android:layout="@layout/donations__fragment_bitcoin" />
+
     </LinearLayout>
 
 </ScrollView>
