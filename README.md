@@ -1,10 +1,14 @@
 # Android Donations Lib
 
-Android Donations Lib supports donations by Google Play Store, PayPal, and Flattr.
+Android Donations Lib supports donations by Google Play Store, Flattr, PayPal, and Bitcoin.
 
 It is used in my projects AdAway, FasterGPS, and NTP-Sync.
 
 ## Changelog
+### 2.2
+* Updated build files
+* Added bitcoin support (thanks to Oleg Vaskevich)
+
 ### 2.1
 * Permissions are now defined per product flavor, they were removed from library's AndroidManifest
 
