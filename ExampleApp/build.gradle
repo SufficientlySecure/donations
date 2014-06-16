@@ -1,25 +1,25 @@
 apply plugin: 'android'
 
 dependencies {
-    compile 'com.android.support:support-v4:18.0.+'
+    compile 'com.android.support:support-v4:19.1.0'
     compile project(':libraries:Donations')
 }
 
 android {
-    compileSdkVersion 17
-    buildToolsVersion "17.0.0"
+    compileSdkVersion 19
+    buildToolsVersion "19.1.0"
 
     defaultConfig {
         minSdkVersion 7
-        targetSdkVersion 17
+        targetSdkVersion 19
     }
 
     productFlavors {
         google {
-            buildConfig "public final static boolean DONATIONS_GOOGLE = true;"
+            buildConfigField "boolean", "DONATIONS_GOOGLE", "true"
         }
         fdroid {
-            buildConfig "public final static boolean DONATIONS_GOOGLE = false;"
+            buildConfigField "boolean", "DONATIONS_GOOGLE", "false"
         }
     }
 }
