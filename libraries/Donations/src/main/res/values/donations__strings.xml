@@ -20,5 +20,7 @@
     <string name="donations__bitcoin">Bitcoin</string>
     <string name="donations__bitcoin_description">Send any amount of bitcoin to the developer. Press and hold button to copy address.</string>
     <string name="donations__bitcoin_send_bitcoin_button">Send bitcoin!</string>
+    <string name="donations__bitcoin_toast_copy">Bitcoin address has been copied to the clipboard!</string>
+
 
 </resources>

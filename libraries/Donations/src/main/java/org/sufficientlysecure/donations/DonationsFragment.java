@@ -19,6 +19,7 @@ package org.sufficientlysecure.donations;
 import android.content.ActivityNotFoundException;
 import android.view.*;
 import android.widget.*;
+
 import org.sufficientlysecure.donations.google.util.IabHelper;
 import org.sufficientlysecure.donations.google.util.IabResult;
 
@@ -37,7 +38,7 @@ import android.webkit.WebViewClient;
 import android.webkit.WebView.HitTestResult;
 
 import android.content.DialogInterface;
-import android.os.Handler;
+
 import org.sufficientlysecure.donations.google.util.Purchase;
 
 public class DonationsFragment extends Fragment {
@@ -269,10 +270,10 @@ public class DonationsFragment extends Fragment {
         /* Bitcoin */
         if (mBitcoinEnabled) {
             // inflate bitcoin view into stub
-            ViewStub bitcoinViewStub = (ViewStub) view.findViewById(R.id.donations__bitcoin_stub);
+            ViewStub bitcoinViewStub = (ViewStub) getActivity().findViewById(R.id.donations__bitcoin_stub);
             bitcoinViewStub.inflate();
 
-            Button btBitcoin = (Button) view.findViewById(R.id.donations__bitcoin_button);
+            Button btBitcoin = (Button) getActivity().findViewById(R.id.donations__bitcoin_button);
             btBitcoin.setOnClickListener(new View.OnClickListener() {
 
                 @Override
@@ -286,12 +287,11 @@ public class DonationsFragment extends Fragment {
                 public boolean onLongClick(View v) {
                     Toast.makeText(getActivity(), R.string.donations__bitcoin_toast_copy, Toast.LENGTH_SHORT).show();
                     // http://stackoverflow.com/a/11012443/832776
-                    int sdk = android.os.Build.VERSION.SDK_INT;
-                    if (sdk < android.os.Build.VERSION_CODES.HONEYCOMB) {
-                        android.text.ClipboardManager clipboard = (android.text.ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+                    if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.HONEYCOMB) {
+                        android.text.ClipboardManager clipboard = (android.text.ClipboardManager) getActivity().getSystemService(getActivity().CLIPBOARD_SERVICE);
                         clipboard.setText(mBitcoinAddress);
                     } else {
-                        android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+                        android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getActivity().getSystemService(getActivity().CLIPBOARD_SERVICE);
                         android.content.ClipData clip = android.content.ClipData.newPlainText(mBitcoinAddress, mBitcoinAddress);
                         clipboard.setPrimaryClip(clip);
                     }
@@ -320,7 +320,8 @@ public class DonationsFragment extends Fragment {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                     }
-                });
+                }
+        );
         dialog.show();
     }
 
@@ -532,10 +533,6 @@ public class DonationsFragment extends Fragment {
             }
         });
 
-        // get flattr values from xml config
-        String projectUrl = mFlattrProjectUrl;
-        String flattrUrl = this.mFlattrUrl;
-
         // make text white and background transparent
         String htmlStart = "<html> <head><style type='text/css'>*{color: #FFFFFF; background-color: transparent;}</style>";
 
@@ -549,7 +546,7 @@ public class DonationsFragment extends Fragment {
 
         // set url of flattr link
         mFlattrUrlTextView = (TextView) getActivity().findViewById(R.id.donations__flattr_url);
-        mFlattrUrlTextView.setText(flattrScheme + flattrUrl);
+        mFlattrUrlTextView.setText(flattrScheme + mFlattrUrl);
 
         String flattrJavascript = "<script type='text/javascript'>"
                 + "/* <![CDATA[ */"
@@ -560,10 +557,10 @@ public class DonationsFragment extends Fragment {
                 + "})();" + "/* ]]> */" + "</script>";
         String htmlMiddle = "</head> <body> <div align='center'>";
         String flattrHtml = "<a class='FlattrButton' style='display:none;' href='"
-                + projectUrl
+                + mFlattrProjectUrl
                 + "' target='_blank'></a> <noscript><a href='"
                 + flattrScheme
-                + flattrUrl
+                + mFlattrUrl
                 + "' target='_blank'> <img src='"
                 + flattrScheme
                 + "api.flattr.com/button/flattr-badge-large.png' alt='Flattr this' title='Flattr this' border='0' /></a></noscript>";

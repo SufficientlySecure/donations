@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011-2013 Dominik Schürmann <dominik@dominikschuermann.de>
+ * Copyright (C) 2011-2014 Dominik Schürmann <dominik@dominikschuermann.de>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,8 +22,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+
 import org.sufficientlysecure.donations.DonationsFragment;
-import org.sufficientlysecure.donations.example.R;
 
 public class DonationsActivity extends FragmentActivity {
 
@@ -49,6 +49,11 @@ public class DonationsActivity extends FragmentActivity {
     private static final String FLATTR_URL = "flattr.com/thing/712895/dschuermannandroid-donations-lib-on-GitHub";
 
     /**
+     * Bitcoin
+     */
+    private static final String BITCOIN_ADDRESS = "1CXUJDMaXNed69U42okCxeMyiGHjboVw1j";
+
+    /**
      * Called when the activity is first created.
      */
     @Override
@@ -62,10 +67,10 @@ public class DonationsActivity extends FragmentActivity {
         if (BuildConfig.DONATIONS_GOOGLE) {
             donationsFragment = DonationsFragment.newInstance(BuildConfig.DEBUG, true, GOOGLE_PUBKEY, GOOGLE_CATALOG,
                     getResources().getStringArray(R.array.donation_google_catalog_values), false, null, null,
-                    null, false, null, null);
+                    null, false, null, null, false, null);
         } else {
             donationsFragment = DonationsFragment.newInstance(BuildConfig.DEBUG, false, null, null, null, true, PAYPAL_USER,
-                    PAYPAL_CURRENCY_CODE, getString(R.string.donation_paypal_item), true, FLATTR_PROJECT_URL, FLATTR_URL);
+                    PAYPAL_CURRENCY_CODE, getString(R.string.donation_paypal_item), true, FLATTR_PROJECT_URL, FLATTR_URL, true, BITCOIN_ADDRESS);
         }
 
         ft.replace(R.id.donations_activity_container, donationsFragment, "donationsFragment");
@@ -87,7 +92,7 @@ public class DonationsActivity extends FragmentActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         Fragment fragment = fragmentManager.findFragmentByTag("donationsFragment");
         if (fragment != null) {
-            ((DonationsFragment) fragment).onActivityResult(requestCode, resultCode, data);
+            fragment.onActivityResult(requestCode, resultCode, data);
         }
     }
 
