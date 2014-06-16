@@ -58,6 +58,9 @@ public class DonationsFragment extends Fragment {
     public static final String ARG_FLATTR_PROJECT_URL = "flattrProjectUrl";
     public static final String ARG_FLATTR_URL = "flattrUrl";
 
+    public static final String ARG_BITCOIN_ENABLED = "bitcoinEnabled";
+    public static final String ARG_BITCOIN_ADDRESS = "bitcoinAddress";
+
     private static final String TAG = "Donations Library";
 
     // http://developer.android.com/google/play/billing/billing_testing.html
@@ -86,6 +89,9 @@ public class DonationsFragment extends Fragment {
     protected String mFlattrProjectUrl = "";
     protected String mFlattrUrl = "";
 
+    protected boolean mBitcoinEnabled = false;
+    protected String mBitcoinAddress = "";
+
     /**
      * Instantiate DonationsFragment.
      *
@@ -102,12 +108,14 @@ public class DonationsFragment extends Fragment {
      * @param flattrEnabled       Enable Flattr donations
      * @param flattrProjectUrl    The project URL used on Flattr
      * @param flattrUrl           The Flattr URL to your thing. NOTE: Enter without http://
+     * @param bitcoinEnabled      Enable bitcoin donations
+     * @param bitcoinAddress      The address to receive bitcoin
      * @return DonationsFragment
      */
     public static DonationsFragment newInstance(boolean debug, boolean googleEnabled, String googlePubkey, String[] googleCatalog,
                                                 String[] googleCatalogValues, boolean paypalEnabled, String paypalUser,
                                                 String paypalCurrencyCode, String paypalItemName, boolean flattrEnabled,
-                                                String flattrProjectUrl, String flattrUrl) {
+                                                String flattrProjectUrl, String flattrUrl, boolean bitcoinEnabled, String bitcoinAddress) {
         DonationsFragment donationsFragment = new DonationsFragment();
         Bundle args = new Bundle();
 
@@ -126,6 +134,9 @@ public class DonationsFragment extends Fragment {
         args.putBoolean(ARG_FLATTR_ENABLED, flattrEnabled);
         args.putString(ARG_FLATTR_PROJECT_URL, flattrProjectUrl);
         args.putString(ARG_FLATTR_URL, flattrUrl);
+
+        args.putBoolean(ARG_BITCOIN_ENABLED, bitcoinEnabled);
+        args.putString(ARG_BITCOIN_ADDRESS, bitcoinAddress);
 
         donationsFragment.setArguments(args);
         return donationsFragment;
@@ -150,6 +161,9 @@ public class DonationsFragment extends Fragment {
         mFlattrEnabled = getArguments().getBoolean(ARG_FLATTR_ENABLED);
         mFlattrProjectUrl = getArguments().getString(ARG_FLATTR_PROJECT_URL);
         mFlattrUrl = getArguments().getString(ARG_FLATTR_URL);
+
+        mBitcoinEnabled = getArguments().getBoolean(ARG_BITCOIN_ENABLED);
+        mBitcoinAddress = getArguments().getString(ARG_BITCOIN_ADDRESS);
     }
 
     @Override
@@ -248,6 +262,40 @@ public class DonationsFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     donatePayPalOnClick(v);
+                }
+            });
+        }
+
+        /* Bitcoin */
+        if (mBitcoinEnabled) {
+            // inflate bitcoin view into stub
+            ViewStub bitcoinViewStub = (ViewStub) view.findViewById(R.id.donations__bitcoin_stub);
+            bitcoinViewStub.inflate();
+
+            Button btBitcoin = (Button) view.findViewById(R.id.donations__bitcoin_button);
+            btBitcoin.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    donateBitcoinOnClick(v);
+                }
+            });
+            btBitcoin.setOnLongClickListener(new View.OnLongClickListener() {
+
+                @Override
+                public boolean onLongClick(View v) {
+                    Toast.makeText(getActivity(), R.string.donations__bitcoin_toast_copy, Toast.LENGTH_SHORT).show();
+                    // http://stackoverflow.com/a/11012443/832776
+                    int sdk = android.os.Build.VERSION.SDK_INT;
+                    if (sdk < android.os.Build.VERSION_CODES.HONEYCOMB) {
+                        android.text.ClipboardManager clipboard = (android.text.ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+                        clipboard.setText(mBitcoinAddress);
+                    } else {
+                        android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+                        android.content.ClipData clip = android.content.ClipData.newPlainText(mBitcoinAddress, mBitcoinAddress);
+                        clipboard.setPrimaryClip(clip);
+                    }
+                    return true;
                 }
             });
         }
@@ -390,6 +438,25 @@ public class DonationsFragment extends Fragment {
         } catch (ActivityNotFoundException e) {
             openDialog(android.R.drawable.ic_dialog_alert, R.string.donations__alert_dialog_title,
                     getString(R.string.donations__alert_dialog_no_browser));
+        }
+    }
+
+    /**
+     * Donate with bitcoin by opening a bitcoin: intent if available.
+     *
+     * @param view
+     */
+    public void donateBitcoinOnClick(View view) {
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse("bitcoin:" + mBitcoinAddress));
+
+        if (mDebug)
+            Log.d(TAG, "Attempting to donate bitcoin using URI: " + i.getDataString());
+
+        try {
+            startActivity(i);
+        } catch (ActivityNotFoundException e) {
+            ((Button) view.findViewById(R.id.donations__bitcoin_button)).performLongClick();
         }
     }
 
