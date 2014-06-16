@@ -20,7 +20,7 @@ Fork Android Donations Lib and do a pull request. I will merge your changes back
 
 ## Screenshot
 
-![Screenshot](http://github.com/dschuermann/android-donations-lib/raw/master/screenshot.png)
+![Screenshot](https://github.com/dschuermann/android-donations-lib/raw/master/screenshot.png)
 
 ## Build Example App with Gradle
 
