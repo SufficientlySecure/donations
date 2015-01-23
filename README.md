@@ -4,6 +4,8 @@ Android Donations Lib supports donations by Google Play Store, Flattr, PayPal, a
 
 It is used in my projects AdAway, FasterGPS, and NTP-Sync.
 
+NOTE: Google mailed me to remove PayPal donation capability when publishing on Google Play! You can build "product flavors" defined by the ExampleApp: One version with Google Play Donation capability and one with Paypal and Flattr!
+
 ## Changelog
 ### 2.2
 * Updated build files
