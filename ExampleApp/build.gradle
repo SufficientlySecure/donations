@@ -1,7 +1,7 @@
 apply plugin: 'android'
 
 dependencies {
-    compile 'com.android.support:support-v4:19.1.0'
+    compile 'com.google.android:support-v4:r7'
     compile project(':libraries:Donations')
 }
 
