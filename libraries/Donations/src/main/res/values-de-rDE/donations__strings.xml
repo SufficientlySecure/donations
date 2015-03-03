@@ -16,4 +16,7 @@
   <string name="donations__thanks_dialog">Danke für die Spende!\nIch weiß es wirklich zu schätzen!</string>
   <string name="donations__alert_dialog_title">Fehler aufgetreten</string>
   <string name="donations__alert_dialog_no_browser">Kein Browser gefunden um eine Webseite zu öffnen!</string>
+  <string name="donations__bitcoin_description">Sende eine beliebige Menge Bitcoin an den Entwickler. Drücke und halte den Button um die Adresse zu kopieren.</string>
+  <string name="donations__bitcoin_send_bitcoin_button">Sende Bitcoin!</string>
+  <string name="donations__bitcoin_toast_copy">Bitcoin Adresse wurde in die Zwischenablage kopiert!</string>
 </resources>
