@@ -41,6 +41,9 @@ dependencies {
 * Add ``<uses-permission android:name="com.android.vending.BILLING" />`` to product flavors that use Google Play In-app billing
 
 ## Changelog
+### 2.3
+* Publish to JCenter
+
 ### 2.2
 * Updated build files
 * Added bitcoin support (thanks to Oleg Vaskevich)
