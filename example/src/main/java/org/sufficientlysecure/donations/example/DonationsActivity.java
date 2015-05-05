@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011-2014 Dominik Schürmann <dominik@dominikschuermann.de>
+ * Copyright (C) 2011-2015 Dominik Schürmann <dominik@dominikschuermann.de>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -80,10 +80,6 @@ public class DonationsActivity extends FragmentActivity {
     /**
      * Needed for Google Play In-app Billing. It uses startIntentSenderForResult(). The result is not propagated to
      * the Fragment like in startActivityForResult(). Thus we need to propagate manually to our Fragment.
-     *
-     * @param requestCode
-     * @param resultCode
-     * @param data
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

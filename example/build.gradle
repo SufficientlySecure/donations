@@ -1,17 +1,20 @@
 apply plugin: 'com.android.application'
 
 dependencies {
-    compile 'com.android.support:support-v4:21.0.3'
-    compile project(':libraries:Donations')
+    compile 'com.android.support:support-v4:22.1.1'
+    compile project(':Donations')
 }
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion '21.1.1'
+    compileSdkVersion 22
+    buildToolsVersion '22.0.1'
 
     defaultConfig {
+        applicationId "org.sufficientlysecure.donations.example"
         minSdkVersion 7
-        targetSdkVersion 21
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
     }
 
     productFlavors {

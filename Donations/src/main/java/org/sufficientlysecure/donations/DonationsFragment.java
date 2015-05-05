@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011-2013 Dominik Schürmann <dominik@dominikschuermann.de>
+ * Copyright (C) 2011-2015 Dominik Schürmann <dominik@dominikschuermann.de>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,29 +16,38 @@
 
 package org.sufficientlysecure.donations;
 
-import android.content.ActivityNotFoundException;
-import android.view.*;
-import android.widget.*;
-
-import org.sufficientlysecure.donations.google.util.IabHelper;
-import org.sufficientlysecure.donations.google.util.IabResult;
-
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
+import android.content.ActivityNotFoundException;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.view.ViewStub;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.webkit.WebView.HitTestResult;
+import android.webkit.WebViewClient;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import android.content.DialogInterface;
-
+import org.sufficientlysecure.donations.google.util.IabHelper;
+import org.sufficientlysecure.donations.google.util.IabResult;
 import org.sufficientlysecure.donations.google.util.Purchase;
 
 public class DonationsFragment extends Fragment {
@@ -169,11 +178,10 @@ public class DonationsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.donations__fragment, container, false);
-
-        return view;
+        return inflater.inflate(R.layout.donations__fragment, container, false);
     }
 
+    @TargetApi(11)
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -285,16 +293,19 @@ public class DonationsFragment extends Fragment {
 
                 @Override
                 public boolean onLongClick(View v) {
-                    Toast.makeText(getActivity(), R.string.donations__bitcoin_toast_copy, Toast.LENGTH_SHORT).show();
                     // http://stackoverflow.com/a/11012443/832776
-                    if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.HONEYCOMB) {
-                        android.text.ClipboardManager clipboard = (android.text.ClipboardManager) getActivity().getSystemService(getActivity().CLIPBOARD_SERVICE);
-                        clipboard.setText(mBitcoinAddress);
-                    } else {
-                        android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getActivity().getSystemService(getActivity().CLIPBOARD_SERVICE);
-                        android.content.ClipData clip = android.content.ClipData.newPlainText(mBitcoinAddress, mBitcoinAddress);
+                    if (Build.VERSION.SDK_INT >= 11) {
+                        ClipboardManager clipboard =
+                                (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+                        ClipData clip = ClipData.newPlainText(mBitcoinAddress, mBitcoinAddress);
                         clipboard.setPrimaryClip(clip);
+                    } else {
+                        @SuppressWarnings("deprecation")
+                        android.text.ClipboardManager clipboard =
+                                (android.text.ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+                        clipboard.setText(mBitcoinAddress);
                     }
+                    Toast.makeText(getActivity(), R.string.donations__bitcoin_toast_copy, Toast.LENGTH_SHORT).show();
                     return true;
                 }
             });
@@ -303,10 +314,6 @@ public class DonationsFragment extends Fragment {
 
     /**
      * Open dialog
-     *
-     * @param icon
-     * @param title
-     * @param message
      */
     void openDialog(int icon, int title, String message) {
         AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
@@ -327,8 +334,6 @@ public class DonationsFragment extends Fragment {
 
     /**
      * Donate button executes donations based on selection in spinner
-     *
-     * @param view
      */
     public void donateGoogleOnClick(View view) {
         final int index;
@@ -411,8 +416,6 @@ public class DonationsFragment extends Fragment {
     /**
      * Donate button with PayPal by opening browser with defined URL For possible parameters see:
      * https://developer.paypal.com/webapps/developer/docs/classic/paypal-payments-standard/integration-guide/Appx_websitestandard_htmlvariables/
-     *
-     * @param view
      */
     public void donatePayPalOnClick(View view) {
         Uri.Builder uriBuilder = new Uri.Builder();
@@ -444,8 +447,6 @@ public class DonationsFragment extends Fragment {
 
     /**
      * Donate with bitcoin by opening a bitcoin: intent if available.
-     *
-     * @param view
      */
     public void donateBitcoinOnClick(View view) {
         Intent i = new Intent(Intent.ACTION_VIEW);
@@ -457,7 +458,7 @@ public class DonationsFragment extends Fragment {
         try {
             startActivity(i);
         } catch (ActivityNotFoundException e) {
-            ((Button) view.findViewById(R.id.donations__bitcoin_button)).performLongClick();
+            view.findViewById(R.id.donations__bitcoin_button).performLongClick();
         }
     }
 

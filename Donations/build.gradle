@@ -1,0 +1,33 @@
+apply plugin: 'com.android.library'
+apply plugin: 'bintray-release' // must be applied after your artifact generating plugin (eg. java / com.android.library)
+
+dependencies {
+    compile 'com.android.support:support-v4:22.1.1'
+}
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion '22.0.1'
+
+    defaultConfig {
+        minSdkVersion 7
+        targetSdkVersion 22
+        versionCode 5
+        versionName '2.3'
+    }
+
+    // Workaround until translation issues are fixed
+    lintOptions {
+        abortOnError false
+    }
+
+}
+
+publish {
+    userOrg = 'sufficientlysecure'
+    groupId = 'org.sufficientlysecure'
+    artifactId = 'donations'
+    version = '2.3'
+    description = 'Donations Library for Android. Supports Google Play Store, Flattr, PayPal, and Bitcoin'
+    website = 'https://github.com/sufficientlysecure/donations'
+}

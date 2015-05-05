@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.sufficientlysecure.donations.example"
-    android:versionCode="4"
-    android:versionName="2.2" >
+    package="org.sufficientlysecure.donations.example">
 
     <application
-            android:icon="@drawable/ic_launcher"
-            android:allowBackup="true"
-            android:label="Donations Example" >
+        android:icon="@drawable/ic_launcher"
+        android:allowBackup="true"
+        android:label="Donations Example">
         <activity
-                android:name=".DonationsActivity"
-                android:label="Donations" >
+            android:name=".DonationsActivity"
+            android:label="Donations">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
