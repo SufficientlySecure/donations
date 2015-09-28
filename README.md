@@ -36,7 +36,7 @@ dependencies {
 * The ExampleApp depends on "libraries/Donations" and has two product flavors defined in its gradle configuration.
 * See [ExampleApp/build.gradle](https://github.com/sufficientlysecure/donations/blob/master/example/build.gradle) how to build different product flavors. The build script adds ``DONATIONS_GOOGLE`` to the auto generated BuildConfig.java.
 * See [DonationsActivity.java](https://github.com/sufficientlysecure/donations/blob/master/example/src/main/java/org/sufficientlysecure/donations/example/DonationsActivity.java) how to instantiate the Fragment based on ``DONATIONS_GOOGLE``.
-* When publishing the app you must create **unmanaged** in-app products for your app in the Google Play Store that matches the ones you defined in ``private static final String[] GOOGLE_CATALOG``
+* When publishing the app you must create managed in-app products for your app in the Google Play Store that matches the ones you defined in ``private static final String[] GOOGLE_CATALOG``
 * Add ``<uses-permission android:name="android.permission.INTERNET" />`` to product flavors that use Flattr
 * Add ``<uses-permission android:name="com.android.vending.BILLING" />`` to product flavors that use Google Play In-app billing
 
