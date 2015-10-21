@@ -16,7 +16,7 @@ repositories {
 }
 
 dependencies {
-    compile 'org.sufficientlysecure:donations:2.3'
+    compile 'org.sufficientlysecure:donations:2.4'
 }
 ```
 

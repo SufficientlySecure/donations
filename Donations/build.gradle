@@ -12,8 +12,8 @@ android {
     defaultConfig {
         minSdkVersion 7
         targetSdkVersion 22
-        versionCode 5
-        versionName '2.3'
+        versionCode 6
+        versionName '2.4'
     }
 
     // Workaround until translation issues are fixed
@@ -27,7 +27,7 @@ publish {
     userOrg = 'sufficientlysecure'
     groupId = 'org.sufficientlysecure'
     artifactId = 'donations'
-    version = '2.3'
+    version = '2.4'
     description = 'Donations Library for Android. Supports Google Play Store, Flattr, PayPal, and Bitcoin'
     website = 'https://github.com/sufficientlysecure/donations'
 }
