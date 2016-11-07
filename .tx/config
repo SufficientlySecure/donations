@@ -3,6 +3,6 @@ host = https://www.transifex.com
 lang_map = he: iw, zh_TW: zh-rTW, es_MX: es-rMX, pt_BR: pt-rBR
 
 [donations.strings]
-file_filter = Donations/src/main/res/values-<lang>/strings.xml
-source_file = Donations/src/main/res/values/strings.xml
+file_filter = Donations/src/main/res/values-<lang>/donations__strings.xml
+source_file = Donations/src/main/res/values/donations__strings.xml
 source_lang = en
