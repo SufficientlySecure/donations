@@ -24,6 +24,10 @@ dependencies {
 
 ![Screenshot](https://github.com/sufficientlysecure/donations/raw/master/screenshot.png)
 
+## Translations
+
+Help translating on [Transifex](https://www.transifex.com/sufficientlysecure/donations/dashboard/).
+
 ## Build Example App with Gradle
 
 1. Have Android SDK "tools", "platform-tools", and "build-tools" directories in your PATH (http://developer.android.com/sdk/index.html)
