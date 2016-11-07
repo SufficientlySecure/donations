@@ -20,9 +20,11 @@ dependencies {
 }
 ```
 
-## Screenshot
+## Screenshots
 
-![Screenshot](https://github.com/sufficientlysecure/donations/raw/master/screenshot.png)
+| Product Flavor: Google | Product Flavor: Fdroid |
+|------------------------|------------------------|
+| ![Screenshot](https://github.com/sufficientlysecure/donations/raw/master/screenshot-google.png) | ![Screenshot](https://github.com/sufficientlysecure/donations/raw/master/screenshot-fdroid.png) |
 
 ## Translations
 
