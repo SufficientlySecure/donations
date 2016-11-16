@@ -2,7 +2,6 @@
 <resources>
 
     <string name="donations__button_close">Cerrar</string>
-    <string name="donations__description">¿Encuentra útil esta aplicación?\n¡Apoye su desarrollo haciendo una donacion al desarrollador!</string>
     <string name="donations__google_android_market">Google Play Store</string>
     <string name="donations__google_android_market_donate_button">¡Donar!</string>
     <string name="donations__google_android_market_text">¿Cuánto?</string>

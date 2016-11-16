@@ -3,12 +3,9 @@
 
     <string name="donations__button_close">Fechar</string>
     <string name="donations__flattr">Flattr</string>
-    <string name="donations__description">Acha esta aplicação útil?\nApoie o seu desenvolvimento enviando um donativo ao programador!</string>
-    <string name="donations__flattr_description">O Flattr retira 10 % ao donativo como taxa mensal!</string>
     <string name="donations__google_android_market">Google Play Store</string>
     <string name="donations__google_android_market_not_supported_title">Donativos na aplicação não suportados.</string>
     <string name="donations__google_android_market_not_supported">Donativos na aplicação não suportados. A Google Play Store está instalada corretamente?</string>
-    <string name="donations__google_android_market_description">A Google reduz em 30% o donativo!</string>
     <string name="donations__google_android_market_donate_button">Doar!</string>
     <string name="donations__google_android_market_text">Quanto?</string>
     <string name="donations__paypal">PayPal</string>
