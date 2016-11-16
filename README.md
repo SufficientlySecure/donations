@@ -2,7 +2,7 @@
 
 Android Donations Lib supports donations by Google Play Store, Flattr, PayPal, and Bitcoin.
 
-It is used in projects, such as OpenKeychain, AdAway, FasterGPS, and NTP-Sync.
+It is used in projects, such as OpenKeychain, AdAway, FasterGPS, and NTPSync.
 
 **NOTE: Google mailed me to remove PayPal donation capability when publishing on Google Play! Thus, you should build "product flavors" defined by the example: One version with Google Play donation capability and one with Paypal, Flattr, and Bitcoin!**
 
@@ -16,7 +16,7 @@ repositories {
 }
 
 dependencies {
-    compile 'org.sufficientlysecure:donations:2.4'
+    compile 'org.sufficientlysecure:donations:2.5'
 }
 ```
 
@@ -47,6 +47,12 @@ Help translating on [Transifex](https://www.transifex.com/sufficientlysecure/don
 * Add ``<uses-permission android:name="com.android.vending.BILLING" />`` to product flavors that use Google Play In-app billing
 
 ## Changelog
+### 2.5
+* Sync translations
+
+### 2.4
+* Fix NPE without billing service
+
 ### 2.3
 * Publish to JCenter
 
