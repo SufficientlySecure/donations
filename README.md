@@ -28,7 +28,7 @@ dependencies {
 
 ## Translations
 
-Help translating on [Transifex](https://www.transifex.com/sufficientlysecure/donations/dashboard/).
+Help translating on [Transifex](https://www.transifex.com/privacyapps/donations/dashboard/).
 
 ## Build Example App with Gradle
 
