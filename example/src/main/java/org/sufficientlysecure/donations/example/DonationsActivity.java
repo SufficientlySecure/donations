@@ -38,7 +38,7 @@ public class DonationsActivity extends FragmentActivity {
     /**
      * PayPal
      */
-    private static final String PAYPAL_USER = "dominik@dominikschuermann.de";
+    private static final String PAYPAL_USER = "android@schuermann.eu";
     private static final String PAYPAL_CURRENCY_CODE = "EUR";
 
     /**
@@ -51,7 +51,7 @@ public class DonationsActivity extends FragmentActivity {
     /**
      * Bitcoin
      */
-    private static final String BITCOIN_ADDRESS = "1CXUJDMaXNed69U42okCxeMyiGHjboVw1j";
+    private static final String BITCOIN_ADDRESS = "12Y6zbBYoRxf8kBrjau3WedjtzvcACvPMk";
 
     /**
      * Called when the activity is first created.
