@@ -3,7 +3,7 @@
 
     <string name="donations__button_close">Fermer</string>
     <string name="donations__flattr">Flattr</string>
-    <string name="donations__description">Trouvez-vous que cette application est utile ?\\nSoutenez son développement en envoyant un don à son développeur !</string>
+    <string name="donations__description">Trouvez-vous que cette application est utile ?\nSoutenez son développement en envoyant un don à son développeur !</string>
     <string name="donations__flattr_description">Flattr facture des frais de 10 %</string>
     <string name="donations__google_android_market">Google Play Store</string>
     <string name="donations__google_android_market_not_supported_title">Les dons intégrés à l\'appli ne sont pas pris en charge.</string>
