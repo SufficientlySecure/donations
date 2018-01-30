@@ -2,7 +2,13 @@
 <resources>
 
     <string name="donations__button_close">Cerrar</string>
+    <string name="donations__flattr">Flattr</string>
+    <string name="donations__description">¿Encontraste útil esta aplicación?\nAyuda su desarrollo enviándole una donación al desarrollador!</string>
+    <string name="donations__flattr_description">Flattr añade una comisión del 10%</string>
     <string name="donations__google_android_market">Google Play Store</string>
+    <string name="donations__google_android_market_not_supported_title">Las donaciones In-App no están soportadas</string>
+    <string name="donations__google_android_market_not_supported">Las donaciones In-App no están soportadas. Google Play esta instalado correctamente?</string>
+    <string name="donations__google_android_market_description">Google añade una comisión del 30%</string>
     <string name="donations__google_android_market_donate_button">¡Donar!</string>
     <string name="donations__google_android_market_text">¿Cuánto?</string>
     <string name="donations__paypal">PayPal</string>
@@ -10,4 +16,11 @@
     <string name="donations__thanks_dialog_title">¡Gracias!</string>
     <string name="donations__thanks_dialog">¡Gracias por donar!\n¡Realmente lo aprecio!</string>
     <string name="donations__alert_dialog_title">Ha ocurrido un error</string>
-    </resources>
+    <string name="donations__alert_dialog_no_browser">No se encontró ningún navegador para abrir el sitio web!</string>
+    <string name="donations__bitcoin">Bitcoin</string>
+    <string name="donations__bitcoin_description">Envía cualquier cantidad de bitcoins al desarrollador. Presiona y mantén el botón para copiar la direccion</string>
+    <string name="donations__bitcoin_send_bitcoin_button">¡Enviar Bitcoin!</string>
+    <string name="donations__bitcoin_toast_copy">¡La dirección de Bitcoin ah sido copiado al portapapeles!</string>
+
+
+</resources>

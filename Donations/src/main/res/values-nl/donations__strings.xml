@@ -3,9 +3,12 @@
 
     <string name="donations__button_close">Sluiten</string>
     <string name="donations__flattr">Flattr</string>
+    <string name="donations__description">Vind je deze app nuttig?\nOndersteun de ontwikkeling door middel van een donatie aan de ontwikkelaar!</string>
+    <string name="donations__flattr_description">Flattr neemt 10% van de donatie</string>
     <string name="donations__google_android_market">Google Play Store</string>
     <string name="donations__google_android_market_not_supported_title">In-app-donaties worden niet ondersteund.</string>
     <string name="donations__google_android_market_not_supported">Helaas, in-app-donaties worden niet ondersteund. Is de Google Play Store correct geïnstalleerd?</string>
+    <string name="donations__google_android_market_description">Google neemt 30% van de donatie</string>
     <string name="donations__google_android_market_donate_button">Doneren!</string>
     <string name="donations__google_android_market_text">Hoeveel?</string>
     <string name="donations__paypal">PayPal</string>
@@ -14,4 +17,10 @@
     <string name="donations__thanks_dialog">Bedankt voor uw donatie!n\Ik stel het heel erg op prijs.</string>
     <string name="donations__alert_dialog_title">Er is een fout opgetreden</string>
     <string name="donations__alert_dialog_no_browser">Er is geen webbrowser gevonden om de website mee te openen!</string>
-    </resources>
+    <string name="donations__bitcoin">Bitcoin</string>
+    <string name="donations__bitcoin_description">Stuur eender welk bedrag naar de ontwikkelaar in bitcoins. Houd de knop ingedrukt om het adres te kopiëren.</string>
+    <string name="donations__bitcoin_send_bitcoin_button">Verstuur bitcoins!</string>
+    <string name="donations__bitcoin_toast_copy">Bitcoin-adres is gekopieerd naar het klembord!</string>
+
+
+</resources>

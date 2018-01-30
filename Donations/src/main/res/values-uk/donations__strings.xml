@@ -3,9 +3,12 @@
 
     <string name="donations__button_close">Закрити</string>
     <string name="donations__flattr">Flattr</string>
+    <string name="donations__description">Цей додаток став корисним для Вас?\nПідтримайте його розробку надіславши подяку розробнику!</string>
+    <string name="donations__flattr_description">Flattr знімає 10% комісії</string>
     <string name="donations__google_android_market">магазин Google Play</string>
     <string name="donations__google_android_market_not_supported_title">Програмні пожертви не підтримуються.</string>
     <string name="donations__google_android_market_not_supported">Пожертвування через програму не підтримуються. Магазин Google Play встановлений правильно?</string>
+    <string name="donations__google_android_market_description">Google знімає 30% комісії</string>
     <string name="donations__google_android_market_donate_button">Пожертвувати!</string>
     <string name="donations__google_android_market_text">Скільки?</string>
     <string name="donations__paypal">PayPal</string>
@@ -14,4 +17,10 @@
     <string name="donations__thanks_dialog">Дякую за пожертвування!\nЯ дуже це ціную!</string>
     <string name="donations__alert_dialog_title">Трапилася помилка</string>
     <string name="donations__alert_dialog_no_browser">Не знайдено жодного переглядача, щоб відкрити веб-сайт!</string>
-    </resources>
+    <string name="donations__bitcoin">Bitcoin</string>
+    <string name="donations__bitcoin_description">Відправте будь-яку кількість bitcoin розробнику. Натисніть та утримуйте кнопку, аби скопіювати адресу.</string>
+    <string name="donations__bitcoin_send_bitcoin_button">Надіслати bitcoin!</string>
+    <string name="donations__bitcoin_toast_copy">Bitcoin адресу скопійовано до буферу обміну!</string>
+
+
+</resources>

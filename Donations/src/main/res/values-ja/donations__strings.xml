@@ -3,9 +3,12 @@
 
     <string name="donations__button_close">閉じる</string>
     <string name="donations__flattr">Flattr</string>
+    <string name="donations__description">このアプリケーションは便利ですか?\\n開発者に寄付を送って開発をサポートしてください!</string>
+    <string name="donations__flattr_description">Flattr は 10% の手数料がかかります</string>
     <string name="donations__google_android_market">Google Playストア</string>
     <string name="donations__google_android_market_not_supported_title">アプリ内寄付は非対応です</string>
     <string name="donations__google_android_market_not_supported">アプリ内寄付は非対応です。GooglePlayストアはインストールされていますか?</string>
+    <string name="donations__google_android_market_description">Google は 30% の手数料がかかります</string>
     <string name="donations__google_android_market_donate_button">寄付する!</string>
     <string name="donations__google_android_market_text">いくら?</string>
     <string name="donations__paypal">PayPal</string>
@@ -14,4 +17,10 @@
     <string name="donations__thanks_dialog">寄付ありがとう!\n本当に感謝しています!</string>
     <string name="donations__alert_dialog_title">エラーが発生しました</string>
     <string name="donations__alert_dialog_no_browser">サイトを開くためのブラウザが見つかりません!</string>
-    </resources>
+    <string name="donations__bitcoin">Bitcoin</string>
+    <string name="donations__bitcoin_description">開発者にビットコインを送ります。 ボタンを長押ししてアドレスをコピーします。</string>
+    <string name="donations__bitcoin_send_bitcoin_button">Bitcoin を送信!</string>
+    <string name="donations__bitcoin_toast_copy">Bitcoin のアドレスをクリップボードにコピーしました!</string>
+
+
+</resources>
