@@ -25,10 +25,7 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -190,23 +187,18 @@ public class DonationsFragment extends Fragment {
 
         /* Flattr */
         if (mFlattrEnabled) {
-            // inflate flattr view into stub
-            ViewStub flattrViewStub = (ViewStub) getActivity().findViewById(
-                    R.id.donations__flattr_stub);
+            ViewStub flattrViewStub = getActivity().findViewById(R.id.donations__flattr_stub);
             flattrViewStub.inflate();
-
             buildFlattrView();
         }
 
         /* Google */
         if (mGoogleEnabled) {
-            // inflate google view into stub
-            ViewStub googleViewStub = (ViewStub) getActivity().findViewById(
-                    R.id.donations__google_stub);
+            ViewStub googleViewStub = getActivity().findViewById(R.id.donations__google_stub);
             googleViewStub.inflate();
 
             // choose donation amount
-            mGoogleSpinner = (Spinner) getActivity().findViewById(
+            mGoogleSpinner = getActivity().findViewById(
                     R.id.donations__google_android_market_spinner);
             ArrayAdapter<CharSequence> adapter;
             if (mDebug) {
@@ -219,7 +211,7 @@ public class DonationsFragment extends Fragment {
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             mGoogleSpinner.setAdapter(adapter);
 
-            Button btGoogle = (Button) getActivity().findViewById(
+            Button btGoogle = getActivity().findViewById(
                     R.id.donations__google_android_market_donate_button);
             btGoogle.setOnClickListener(new OnClickListener() {
 
@@ -247,7 +239,6 @@ public class DonationsFragment extends Fragment {
                         Log.d(TAG, "Setup finished.");
 
                     if (!result.isSuccess()) {
-                        // Oh noes, there was a problem.
                         openDialog(android.R.drawable.ic_dialog_alert, R.string.donations__google_android_market_not_supported_title,
                                 getString(R.string.donations__google_android_market_not_supported));
                         return;
@@ -261,13 +252,10 @@ public class DonationsFragment extends Fragment {
 
         /* PayPal */
         if (mPaypalEnabled) {
-            // inflate paypal view into stub
-            ViewStub paypalViewStub = (ViewStub) getActivity().findViewById(
-                    R.id.donations__paypal_stub);
+            ViewStub paypalViewStub = getActivity().findViewById(R.id.donations__paypal_stub);
             paypalViewStub.inflate();
 
-            Button btPayPal = (Button) getActivity().findViewById(
-                    R.id.donations__paypal_donate_button);
+            Button btPayPal = getActivity().findViewById(R.id.donations__paypal_donate_button);
             btPayPal.setOnClickListener(new OnClickListener() {
 
                 @Override
@@ -283,7 +271,7 @@ public class DonationsFragment extends Fragment {
             ViewStub bitcoinViewStub = (ViewStub) getActivity().findViewById(R.id.donations__bitcoin_stub);
             bitcoinViewStub.inflate();
 
-            Button btBitcoin = (Button) getActivity().findViewById(R.id.donations__bitcoin_button);
+            Button btBitcoin = getActivity().findViewById(R.id.donations__bitcoin_button);
             btBitcoin.setOnClickListener(new View.OnClickListener() {
 
                 @Override
@@ -295,18 +283,10 @@ public class DonationsFragment extends Fragment {
 
                 @Override
                 public boolean onLongClick(View v) {
-                    // http://stackoverflow.com/a/11012443/832776
-                    if (Build.VERSION.SDK_INT >= 11) {
-                        ClipboardManager clipboard =
-                                (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
-                        ClipData clip = ClipData.newPlainText(mBitcoinAddress, mBitcoinAddress);
-                        clipboard.setPrimaryClip(clip);
-                    } else {
-                        @SuppressWarnings("deprecation")
-                        android.text.ClipboardManager clipboard =
-                                (android.text.ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
-                        clipboard.setText(mBitcoinAddress);
-                    }
+                    ClipboardManager clipboard =
+                            (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+                    ClipData clip = ClipData.newPlainText(mBitcoinAddress, mBitcoinAddress);
+                    clipboard.setPrimaryClip(clip);
                     Toast.makeText(getActivity(), R.string.donations__bitcoin_toast_copy, Toast.LENGTH_SHORT).show();
                     return true;
                 }
@@ -478,13 +458,11 @@ public class DonationsFragment extends Fragment {
         final FrameLayout mLoadingFrame;
         final WebView mFlattrWebview;
 
-        mFlattrWebview = (WebView) getActivity().findViewById(R.id.donations__flattr_webview);
-        mLoadingFrame = (FrameLayout) getActivity().findViewById(R.id.donations__loading_frame);
+        mFlattrWebview = getActivity().findViewById(R.id.donations__flattr_webview);
+        mLoadingFrame = getActivity().findViewById(R.id.donations__loading_frame);
 
         // disable hardware acceleration for this webview to get transparent background working
-        if (Build.VERSION.SDK_INT >= 11) {
-            mFlattrWebview.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-        }
+        mFlattrWebview.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 
         // define own webview client to override loading behaviour
         mFlattrWebview.setWebViewClient(new WebViewClient() {
@@ -543,34 +521,23 @@ public class DonationsFragment extends Fragment {
         // make text white and background transparent
         String htmlStart = "<html> <head><style type='text/css'>*{color: #FFFFFF; background-color: transparent;}</style>";
 
-        // https is not working in android 2.1 and 2.2
-        String flattrScheme;
-        if (Build.VERSION.SDK_INT >= 9) {
-            flattrScheme = "https://";
-        } else {
-            flattrScheme = "http://";
-        }
-
         // set url of flattr link
-        mFlattrUrlTextView = (TextView) getActivity().findViewById(R.id.donations__flattr_url);
-        mFlattrUrlTextView.setText(flattrScheme + mFlattrUrl);
+        mFlattrUrlTextView = getActivity().findViewById(R.id.donations__flattr_url);
+        mFlattrUrlTextView.setText("https://" + mFlattrUrl);
 
         String flattrJavascript = "<script type='text/javascript'>"
                 + "/* <![CDATA[ */"
                 + "(function() {"
                 + "var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];"
-                + "s.type = 'text/javascript';" + "s.async = true;" + "s.src = '" + flattrScheme
-                + "api.flattr.com/js/0.6/load.js?mode=auto';" + "t.parentNode.insertBefore(s, t);"
+                + "s.type = 'text/javascript';" + "s.async = true;" + "s.src = '"
+                + "https://api.flattr.com/js/0.6/load.js?mode=auto';" + "t.parentNode.insertBefore(s, t);"
                 + "})();" + "/* ]]> */" + "</script>";
         String htmlMiddle = "</head> <body> <div align='center'>";
         String flattrHtml = "<a class='FlattrButton' style='display:none;' href='"
                 + mFlattrProjectUrl
-                + "' target='_blank'></a> <noscript><a href='"
-                + flattrScheme
+                + "' target='_blank'></a> <noscript><a href='https://"
                 + mFlattrUrl
-                + "' target='_blank'> <img src='"
-                + flattrScheme
-                + "api.flattr.com/button/flattr-badge-large.png' alt='Flattr this' title='Flattr this' border='0' /></a></noscript>";
+                + "' target='_blank'> <img src='https://api.flattr.com/button/flattr-badge-large.png' alt='Flattr this' title='Flattr this' border='0' /></a></noscript>";
         String htmlEnd = "</div> </body> </html>";
 
         String flattrCode = htmlStart + flattrJavascript + htmlMiddle + flattrHtml + htmlEnd;
