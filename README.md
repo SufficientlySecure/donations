@@ -23,7 +23,7 @@ It is used in projects, such as OpenKeychain, AdAway, FasterGPS, and NTPSync.
 4. When publishing the app you must create managed in-app products for your app in the Google Play Store that matches the ones you defined in ``private static final String[] GOOGLE_CATALOG``
 
 ## Build flavors
-1. Keep in mind that Google forbits other payment methods besides Google Play. Thus in the example two build flavors are used. Check out [ExampleApp/build.gradle](https://github.com/sufficientlysecure/donations/blob/master/example/build.gradle). The build script adds ``DONATIONS_GOOGLE`` to the auto generated BuildConfig.java.
+1. Keep in mind that Google forbits other payment methods besides Google Play. Thus, in the example, two build flavors are used. Check out [ExampleApp/build.gradle](https://github.com/sufficientlysecure/donations/blob/master/example/build.gradle). The build script adds ``DONATIONS_GOOGLE`` to the auto generated BuildConfig.java.
 2. Add ``<uses-permission android:name="android.permission.INTERNET" />`` to product flavors that use Flattr
 3. Add ``<uses-permission android:name="com.android.vending.BILLING" />`` to product flavors that use Google Play In-app billing
 
