@@ -15,7 +15,7 @@ It is used in projects, such as OpenKeychain, AdAway, FasterGPS, and NTPSync.
     }
 
     dependencies {
-        compile 'org.sufficientlysecure:donations:2.5'
+        compile 'org.sufficientlysecure:donations:2.6'
     }
     ```
 2. Instantiate the fragment where you want to use it. Check out the example app for this: [DonationsActivity.java](https://github.com/sufficientlysecure/donations/blob/master/example/src/main/java/org/sufficientlysecure/donations/example/DonationsActivity.java)
@@ -48,6 +48,10 @@ Help translating on [Transifex](https://www.transifex.com/privacyapps/donations/
 ## Add the lib to your project
 
 ## Changelog
+### 2.6
+* Force Intent chooser for PayPal
+* Min SDK 14
+
 ### 2.5
 * Sync translations
 
