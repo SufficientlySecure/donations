@@ -1,27 +1,31 @@
 apply plugin: 'com.android.application'
 
 dependencies {
-    compile 'com.android.support:support-v4:22.1.1'
+    compile 'com.android.support:support-v4:27.1.0'
     compile project(':Donations')
 }
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion '22.0.1'
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
 
     defaultConfig {
         applicationId "org.sufficientlysecure.donations.example"
-        minSdkVersion 7
-        targetSdkVersion 22
+        minSdkVersion 14
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
     }
 
+    flavorDimensions("freedom")
+
     productFlavors {
         google {
+            dimension "freedom"
             buildConfigField "boolean", "DONATIONS_GOOGLE", "true"
         }
         fdroid {
+            dimension "freedom"
             buildConfigField "boolean", "DONATIONS_GOOGLE", "false"
         }
     }
