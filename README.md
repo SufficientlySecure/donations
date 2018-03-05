@@ -6,19 +6,27 @@ It is used in projects, such as OpenKeychain, AdAway, FasterGPS, and NTPSync.
 
 **NOTE: Google mailed me to remove PayPal donation capability when publishing on Google Play! Thus, you should build "product flavors" defined by the example: One version with Google Play donation capability and one with Paypal, Flattr, and Bitcoin!**
 
-## How to import
+## How to use
 
-Add this to your build.gradle:
+1. Add dependency to your build.gradle:
+    ```
+    repositories {
+        jcenter()
+    }
 
-```
-repositories {
-    jcenter()
-}
+    dependencies {
+        compile 'org.sufficientlysecure:donations:2.5'
+    }
+    ```
+2. Instantiate the fragment where you want to use it. Check out the example app for this: [DonationsActivity.java](https://github.com/sufficientlysecure/donations/blob/master/example/src/main/java/org/sufficientlysecure/donations/example/DonationsActivity.java)
+3. Don't forget to pass through results in ``onActivityResult()`` back to the fragment as shown in [DonationsActivity.java](https://github.com/sufficientlysecure/donations/blob/master/example/src/main/java/org/sufficientlysecure/donations/example/DonationsActivity.java).
+4. When publishing the app you must create managed in-app products for your app in the Google Play Store that matches the ones you defined in ``private static final String[] GOOGLE_CATALOG``
 
-dependencies {
-    compile 'org.sufficientlysecure:donations:2.5'
-}
-```
+## Build flavors
+1. Keep in mind that Google forbits other payment methods besides Google Play. Thus in the example two build flavors are used. Check out [ExampleApp/build.gradle](https://github.com/sufficientlysecure/donations/blob/master/example/build.gradle). The build script adds ``DONATIONS_GOOGLE`` to the auto generated BuildConfig.java.
+2. Add ``<uses-permission android:name="android.permission.INTERNET" />`` to product flavors that use Flattr
+3. Add ``<uses-permission android:name="com.android.vending.BILLING" />`` to product flavors that use Google Play In-app billing
+
 
 ## Screenshots
 
@@ -38,13 +46,6 @@ Help translating on [Transifex](https://www.transifex.com/privacyapps/donations/
 4. Execute ``./gradlew build``
 
 ## Add the lib to your project
-
-* The ExampleApp depends on "libraries/Donations" and has two product flavors defined in its gradle configuration.
-* See [ExampleApp/build.gradle](https://github.com/sufficientlysecure/donations/blob/master/example/build.gradle) how to build different product flavors. The build script adds ``DONATIONS_GOOGLE`` to the auto generated BuildConfig.java.
-* See [DonationsActivity.java](https://github.com/sufficientlysecure/donations/blob/master/example/src/main/java/org/sufficientlysecure/donations/example/DonationsActivity.java) how to instantiate the Fragment based on ``DONATIONS_GOOGLE``.
-* When publishing the app you must create managed in-app products for your app in the Google Play Store that matches the ones you defined in ``private static final String[] GOOGLE_CATALOG``
-* Add ``<uses-permission android:name="android.permission.INTERNET" />`` to product flavors that use Flattr
-* Add ``<uses-permission android:name="com.android.vending.BILLING" />`` to product flavors that use Google Play In-app billing
 
 ## Changelog
 ### 2.5
