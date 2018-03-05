@@ -25,6 +25,8 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -435,11 +437,15 @@ public class DonationsFragment extends Fragment {
         if (mDebug)
             Log.d(TAG, "Opening the browser with the url: " + payPalUri.toString());
 
-        // Start your favorite browser
-        try {
-            Intent viewIntent = new Intent(Intent.ACTION_VIEW, payPalUri);
-            startActivity(viewIntent);
-        } catch (ActivityNotFoundException e) {
+        Intent viewIntent = new Intent(Intent.ACTION_VIEW, payPalUri);
+        // force intent chooser, do not automatically use PayPal app
+        // https://github.com/PrivacyApps/donations/issues/28
+        String title = getResources().getString(R.string.donations__paypal);
+        Intent chooser = Intent.createChooser(viewIntent, title);
+
+        if (viewIntent.resolveActivity(getActivity().getPackageManager()) != null) {
+            startActivity(chooser);
+        } else {
             openDialog(android.R.drawable.ic_dialog_alert, R.string.donations__alert_dialog_title,
                     getString(R.string.donations__alert_dialog_no_browser));
         }
