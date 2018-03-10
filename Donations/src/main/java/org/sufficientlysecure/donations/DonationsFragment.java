@@ -217,7 +217,15 @@ public class DonationsFragment extends Fragment {
 
                 @Override
                 public void onClick(View v) {
-                    donateGoogleOnClick(v);
+                    try {
+                        donateGoogleOnClick(v);
+                    } catch (IllegalStateException e) {     // In some devices, it is impossible to setup IAB Helper
+                        if (mDebug)                         // and this exception is thrown, being almost "impossible"
+                            Log.e(TAG, e.getMessage());     // to the user to control it and forcing app close.
+                        openDialog(android.R.drawable.ic_dialog_alert, 
+                                   R.string.donations__google_android_market_not_supported_title,
+                                   getString(R.string.donations__google_android_market_not_supported));
+                    }
                 }
             });
 
