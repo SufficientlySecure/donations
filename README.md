@@ -36,7 +36,7 @@ It is used in projects, such as OpenKeychain, AdAway, FasterGPS, and NTPSync.
 
 ## Translations
 
-Help translating on [Transifex](https://www.transifex.com/privacyapps/donations/dashboard/).
+Help translating on [Transifex](https://www.transifex.com/sufficientlysecure/donations/).
 
 ## Build Example App with Gradle
 
