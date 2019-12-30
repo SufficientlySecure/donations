@@ -2,4 +2,25 @@
 <resources>
 
     <string name="donations__button_close">닫기</string>
-    </resources>
+    <string name="donations__flattr">Flattr</string>
+    <string name="donations__description">이 앱이 유용하다고 생각하십니까?\n개발자에게 기부를 하여 지원을 해 주세요!</string>
+    <string name="donations__flattr_description">Flattr 는 10%의 수수료를 부과합니다.</string>
+    <string name="donations__google_android_market">Google Play 스토어</string>
+    <string name="donations__google_android_market_not_supported_title">인앱 기부를 지원하지 않습니다.</string>
+    <string name="donations__google_android_market_not_supported">인앱 기부를 지원하지 않습니다. Google Play 스토어가 제대로 설치되어 있는지 확인하세요.</string>
+    <string name="donations__google_android_market_description">Google 은 30%의 수수료를 부과합니다.</string>
+    <string name="donations__google_android_market_donate_button">기부!</string>
+    <string name="donations__google_android_market_text">얼만큼 기부할것인가요?</string>
+    <string name="donations__paypal">PayPal</string>
+    <string name="donations__paypal_description">버튼을 클릭한 후 기부할 금액을 선택할 수 있습니다!</string>
+    <string name="donations__thanks_dialog_title">감사합니다!</string>
+    <string name="donations__thanks_dialog">기부 해 주셔서 감사합니다!\n정말 감사합니다!</string>
+    <string name="donations__alert_dialog_title">오류 발생</string>
+    <string name="donations__alert_dialog_no_browser">웹 사이트를 여는데 필요한 인터넷 브라우저가 없습니다.</string>
+    <string name="donations__bitcoin">비트코인</string>
+    <string name="donations__bitcoin_description">개발자에게 비트코인을 보내주세요. 버튼을 길게 눌러 비트코인 주소를 복사합니다.</string>
+    <string name="donations__bitcoin_send_bitcoin_button">비트코인 보내기!</string>
+    <string name="donations__bitcoin_toast_copy">비트코인 주소가 클립보드에 복사되었습니다!</string>
+
+
+</resources>
